@@ -1,4 +1,4 @@
-const commands = require("./commands.js");
+const command = require("./command.js");
 
 // We output a prompt.
 process.stdout.write('prompt > ');
@@ -8,5 +8,5 @@ process.stdin.on('data', (userInput) => {
   // We use trim() to remove the \n character at the end of data.
   userInput = userInput.toString().trim();
   
-  commands.evaluateCmd(userInput);
+  command.evaluateCmd(userInput);
 });
