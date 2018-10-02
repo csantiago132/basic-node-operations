@@ -50,7 +50,7 @@ const fs = require("fs");
         firstLinesOfFile.push(sourceFileToArray[index])
       })
 
-      data = firstLinesOfFile.join('\n');
+      data = firstLinesOfFile.join('\n').slice(0, 4);
       
       done(data);
     });
