@@ -48,10 +48,9 @@ const fs = require("fs");
     fs.readFile(fileName, (error, data) => {
       if (error) throw new Error(error);
       const sourceFile = data.toString().split('\n');
-      const sourceFileToArray = new Array(...sourceFile);
       let firstLinesOfFile = new Array();
 
-      new Array(...sourceFileToArray).slice(0, 6).forEach(content => {
+      new Array(...sourceFile).slice(0, 6).forEach(content => {
           firstLinesOfFile.push(content);
       });
 
@@ -65,10 +64,9 @@ const fs = require("fs");
     fs.readFile(fileName, (error, data) => {
       if (error) throw new Error(error);
       const sourceFile = data.toString().split('\n');
-      const sourceFileToArray = new Array(...sourceFile);
       let lastLinesOfFile = new Array();
 
-      new Array(...sourceFileToArray).slice(-8, sourceFileToArray.length).forEach(content => {
+      new Array(...sourceFile).slice(-8, sourceFile.length).forEach(content => {
         lastLinesOfFile.push(content);
       });
 
