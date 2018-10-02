@@ -8,13 +8,11 @@ const fs = require("fs");
 
 //where we will store our commands 
  const evaluateCmd = (userInput) => {
-  //parses the user input to understand which command was typed
    const userInputArray = userInput.split(' ');
    const command = userInputArray[0];
 
    switch(command){ 
      case 'echo':
-      //we will add the functionality of echo next within the object commandLibrary    
       commandLibrary.echo(userInputArray.slice(1).join(' '));
       break;
     case 'cat':
@@ -24,15 +22,14 @@ const fs = require("fs");
       commandLibrary.head(userInputArray.slice(1));
       break;
     case 'tail':
-      commandLibrary.tail(userInputArray.slice(1))
+      commandLibrary.tail(userInputArray.slice(1));
+      break;
     default: 
       commandLibrary.errorHandler(userInputArray[0]);
    }
  }
 
-//where we will store the logic of our commands
  const commandLibrary = {
-  // the echo command 
   'echo': (userInput) => {
     done(userInput);
   },
@@ -47,10 +44,9 @@ const fs = require("fs");
     fs.readFile(fileName, (error, data) => {
       if (error) throw new Error(error);
       const sourceFile = data.toString().split('\n');
-      const sourceFileToArray = new Array(...sourceFile);
       let firstLinesOfFile = new Array();
 
-      sourceFileToArray.slice(0, 3).forEach(content => {
+      new Array(...sourceFile).slice(0, 6).forEach(content => {
           firstLinesOfFile.push(content);
       });
 
@@ -64,10 +60,9 @@ const fs = require("fs");
     fs.readFile(fileName, (error, data) => {
       if (error) throw new Error(error);
       const sourceFile = data.toString().split('\n');
-      const sourceFileToArray = new Array(...sourceFile);
       let lastLinesOfFile = new Array();
 
-      sourceFileToArray.slice(-8, sourceFileToArray.length).forEach(content => {
+      new Array(...sourceFile).slice(-8, sourceFile.length).forEach(content => {
         lastLinesOfFile.push(content);
       });
 
