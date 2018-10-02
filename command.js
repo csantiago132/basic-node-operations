@@ -24,7 +24,8 @@ const fs = require("fs");
       commandLibrary.head(userInputArray.slice(1));
       break;
     case 'tail':
-      commandLibrary.tail(userInputArray.slice(1))
+      commandLibrary.tail(userInputArray.slice(1));
+      break;
     default: 
       commandLibrary.errorHandler(userInputArray[0]);
    }
