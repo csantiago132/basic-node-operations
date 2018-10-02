@@ -17,6 +17,9 @@ const fs = require("fs");
       //we will add the functionality of echo next within the object commandLibrary    
       commandLibrary.echo(userInputArray.slice(1).join(' '));
       break;
+    case 'cat':
+      commandLibrary.cat(userInputArray.slice(1));
+      break;
    }
  }
 
@@ -25,7 +28,13 @@ const fs = require("fs");
   // the echo command 
   'echo': (userInput) => {
     done(userInput);
+  },
+
+  'cat': (fullPath) => {
+    const fileName = fullPath[0];
+    fs.readFile(fileName, (error, data) => error ? console.error(error) : done(data));
   }
+
  };
 
  module.exports.commandLibrary = commandLibrary;
