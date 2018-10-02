@@ -25,6 +25,8 @@ const fs = require("fs");
       break;
     case 'tail':
       commandLibrary.tail(userInputArray.slice(1))
+    default: 
+      commandLibrary.errorHandler(userInputArray[0]);
    }
  }
 
@@ -72,6 +74,11 @@ const fs = require("fs");
       data = lastLinesOfFile.join('\n');
       done(data);
     })
+  },
+
+  'errorHandler': (userInput) => {
+    const errorHandler = `The "${userInput}" is not a command available on this program.`;
+    done(errorHandler)
   }
  };
 
