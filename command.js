@@ -51,7 +51,7 @@ const fs = require("fs");
       const sourceFileToArray = new Array(...sourceFile);
       let firstLinesOfFile = new Array();
 
-      sourceFileToArray.slice(0, 3).forEach(content => {
+      new Array(...sourceFileToArray).slice(0, 6).forEach(content => {
           firstLinesOfFile.push(content);
       });
 
@@ -68,7 +68,7 @@ const fs = require("fs");
       const sourceFileToArray = new Array(...sourceFile);
       let lastLinesOfFile = new Array();
 
-      sourceFileToArray.slice(-8, sourceFileToArray.length).forEach(content => {
+      new Array(...sourceFileToArray).slice(-8, sourceFileToArray.length).forEach(content => {
         lastLinesOfFile.push(content);
       });
 
