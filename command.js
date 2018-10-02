@@ -20,6 +20,9 @@ const fs = require("fs");
     case 'cat':
       commandLibrary.cat(userInputArray.slice(1));
       break;
+    case 'head':
+      commandLibrary.head(userInputArray.slice(1));
+      break;
    }
  }
 
@@ -33,8 +36,25 @@ const fs = require("fs");
   'cat': (fullPath) => {
     const fileName = fullPath[0];
     fs.readFile(fileName, (error, data) => error ? console.error(error) : done(data));
-  }
+  },
 
+  'head': (fullPath) => {
+    const fileName = fullPath[0];
+    fs.readFile(fileName, (error, data) => {
+      if (error) throw new Error(error);
+      const sourceFile = data.toString().split('\n');
+      const sourceFileToArray = [...sourceFile]
+      let firstLinesOfFile = new Array();
+
+      sourceFileToArray.forEach((content, index) => {
+        firstLinesOfFile.push(sourceFileToArray[index])
+      })
+
+      data = firstLinesOfFile.join('\n');
+      
+      done(data);
+    });
+  },
  };
 
  module.exports.commandLibrary = commandLibrary;
