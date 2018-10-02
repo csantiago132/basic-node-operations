@@ -1,11 +1,25 @@
 {
   "name": "basic-node-operations",
   "version": "1.0.0",
-  "description": "",
+  "description": "basic node operations",
   "main": "bash.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Carlos Santiago",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csantiago132/basic-node-operations.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "bugs": {
+    "url": "https://github.com/csantiago132/basic-node-operations/issues"
+  },
+  "homepage": "https://github.com/csantiago132/basic-node-operations#readme",
+  "dependencies": {
+    "node": "^10.11.0"
+  }
 }
